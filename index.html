@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aimlabs-Inspired Aim Trainer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Aimlabs-Inspired Aim Trainer</h1>
+        <div id="auth">
+            <div id="login-form">
+                <input type="email" id="username" placeholder="example@gmail.com">
+                <input type="password" id="password" placeholder="Password">
+                <button id="login-btn">Login</button>
+                <button id="signup-btn">Sign Up with Gmail</button>
+            </div>
+            <p id="auth-status"></p>
+            <button id="logout-btn" style="display: none;">Logout</button>
+        </div>
+        <div id="game" style="display: none;">
+            <div id="stats">
+                <p>Score: <span id="score">0</span></p>
+                <p>Time Left: <span id="time">30</span>s</p>
+                <p>Rank: <span id="rank">Unranked</span></p>
+                <p>Credits: <span id="credits">0</span></p>
+            </div>
+            <div id="settings">
+                <label>Mode: 
+                    <select id="mode">
+                        <option value="flick">Flick</option>
+                        <option value="track">Track</option>
+                        <option value="switch">Switch</option>
+                    </select>
+                </label>
+                <label>Time (s): <input type="number" id="game-time" value="30" min="5" max="120"></label>
+                <label>Target Size (px): <input type="number" id="target-size" value="50" min="20" max="100"></label>
+                <label>DPI: <input type="number" id="dpi" value="800" min="100" max="3200"></label>
+                <label>Sens: <input type="number" id="sensitivity" value="1" min="0.1" max="10" step="0.1"></label>
+                <button id="start-btn">Start</button>
+                <button id="shop-btn">Shop</button>
+                <button id="stats-btn">Stats</button>
+            </div>
+            <div id="game-area"></div>
+            <h2>Performance History</h2>
+            <table id="history">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Mode</th>
+                        <th>Score</th>
+                        <th>Rank</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body"></tbody>
+            </table>
+            <div id="shop" style="display: none;">
+                <h2>Shop</h2>
+                <h3>Backgrounds</h3>
+                <button class="shop-item" data-type="bg" data-id="default">Default (Free)</button>
+                <button class="shop-item" data-type="bg" data-id="gradient">Gradient (50 Credits)</button>
+                <button class="shop-item" data-type="bg" data-id="space">Space (100 Credits)</button>
+                <h3>Hit Animations</h3>
+                <button class="shop-item" data-type="anim" data-id="none">None (Free)</button>
+                <button class="shop-item" data-type="anim" data-id="burst">Burst (50 Credits)</button>
+                <button class="shop-item" data-type="anim" data-id="ripple">Ripple (100 Credits)</button>
+                <button id="close-shop">Close</button>
+            </div>
+            <div id="stats-panel" style="display: none;">
+                <h2>Stats Dashboard</h2>
+                <p>Accuracy: <span id="accuracy">0%</span></p>
+                <p>Reaction Time: <span id="reaction">0ms</span></p>
+                <p>Kills/Second: <span id="kps">0</span></p>
+                <canvas id="stats-graph" width="400" height="200"></canvas>
+                <button id="close-stats">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
